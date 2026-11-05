@@ -1,435 +1,208 @@
-Package org.stealthjournal.util; 
-
+package org.stealthjournal.crypto; 
+import org.stealthjournal.util.Constants; 
 /** 
-
-Centralized constants used throughout the StealthJournal application. 
-
-This class contains: 
-
--File and configuration delimiters 
-
-Crypto validation token 
-
--Default application paths 
-
--File extensions  
-
--Configuration keys  
-
--UI/security-related constant values  
-
-All members are static because the class is intended to provide application-wide constants rather than object state. 
-
+* Provides encryption and decryption functionality for StealthJournal. 
+* 
+* The project uses a character-shifting Caesar Cipher at the ASCII level. 
+* A validation token is inserted into encrypted content so that the  
+* application can determine whether a supplied key successfully 
+decrypted  
+* the content. 
 */ 
-
-Public final class Constants { 
-
+public final class CryptoEngine{ 
 /** 
-
-*Private constructor prevents instantiation. 
-
+* Private constructor because this class provides utility methods. 
 */ 
-
-private Constants () { 
-
-     throw new AssertionError(“Constants class must not be instantiated.”); 
-
+private CryptoEngine() { 
+throw new AssertionError(“CryptoEngine must not be instantiated.”); 
 } 
-
-/* 
-
-===== 
-
- APPLICATION INFORMATORY 
-
-===== 
-
-*/ 
-
-public static final String APPLICATION_NAME = ”StealthJournal”; 
-
-public static final String APPLICATION_VERSION = “1.0”; 
-
-/* 
-
-===== 
-
- PROJECT DIRECTORIES 
-
-===== 
-
- */ 
-
 /** 
-
-*Root directory of the application. 
-
+* Encrypts plain text using an ASCII-level Caesar shift. 
+* 
+* The validation token is placed at the beginning of the plaintext 
+* before encryption.During decryption, the token is restored only  
+* when the correct key is supplied. 
+* 
+* @param plainText text to encrypt 
+* @param key Caesar shift key 
+* @return encrypted text  
+* @throws IllegalArgumentException if plainText is null or key is invalid  
 */ 
-
-public static final String ROOT_DIRECTORY = “StealthJournal”; 
-
+public static String encrypt(String plainText, int key) { 
+validateText(plainText); 
+validateKey(key); 
+String contentWithToken = 
+Constants.AUTH_VERIFIED_TOKEN + plainText; 
+return shiftAscii(contentWithToken, key); 
+} 
 /** 
-
-*Runtime configuration directory. 
-
-*/ 
-
-public static final String CONFIG_DIRECTORY = “config”; 
-
-/** 
-
-*Runtime diary data directory . 
-
-*/ 
-
-public static final String DATA_DIRECTORY  = “data”; 
-
-/**  
-
-*Directory containing journal files. 
-
-*/  
-
-public static final String JOURNALS_DIRECTORY = “data/journals”; 
-
-/** 
-
-*Resources directory. 
-
-*/ 
-
-public static final String RESOURCES_DIRECTORY = “resources”; 
-
-/** 
-
-*Optional UI icon directory. 
-
-*/ 
-
-public  static final String ICONS_DIRECTORY = “resources“; 
-
-/* 
-
-===== 
-
- CONFIGURATIONS FILES 
-
-===== 
-
- */ 
-
-/** 
-
-*UI configuration file generated at runtime. 
-
-*/ 
-
-public static final String UI_SETTINGS_FILES = “config/ui_settings.txt”; 
-
-/** 
-
-*Configuration key/value separator. 
-
-*/ 
-
-public static final String CONFIG_KEY_VALUE_DELIMITER = “=”; 
-
-/* 
-
-===== 
-
-JOURNAL FILE SETTINGS  
-
-===== 
-
-*/ 
-
-/** 
-
-*Extension used for encrypted diary files. 
-
-*/ 
-
-public static final String JOURNAL_FILE_EXTENSION = “.txt”; 
-
-/** 
-
-*Default directory used for encrypted journal files. 
-
-*/ 
-
-public static final String DEFAULT_JOURNAL_DIRECTORY = “data/journals”; 
-
-/* 
-
-===== 
-
-TEXT/FILE DELIMITERS 
-
-===== 
-
-*/ 
-
-/** 
-
-*Delimiter used when multiple logical values are stored 
-
-*within a single text record . 
-
-*/ 
-
-public static final String FIELD_DELIMETER = “::”; 
-
-/** 
-
-*Delimiter used for key/value-style records. 
-
-*/ 
-
-public static final String KEY_VALUE_DELIMITER = “=”; 
-
-/** 
-
-*Line separator used when writing text files. 
-
-*/ 
-
-public static final String LINE_SEPARATOR = System.lineSeparator(); 
-
-/* 
-
-===== 
-
-CRYPTOGRAPHY 
-
-===== 
-
-*/ 
-
-/** 
-
-*Validation token inserted by CryptoEngine into encrypted 
-
-*journal content. 
-
+* Decrypts encrypted text using the supplied Caesar shift key. 
 *  
-
-*CryptoEngine uses this token to determine whether the 
-
-*supplied decryption key is correct. 
-
-*/ 
-
-public static final String AUTH_VERIFIED_TOKEN = “AUTH_VERIFIED_TOKEN::”; 
-
-/** 
-
-*ASCII character range used by the Caesar cipher. 
-
-*/ 
-
-public static final int ASCII_MAN = 0; 
-
-public static final int ASCII_MAX = 127; 
-
-/** 
-
-*Default Caesar cipher shift. 
-
+* After decryption, the method checks for the validation token. 
+* If the token is absent, the supplied key is considered incorrect. 
 * 
-
-*The actual encryption/decryption key supplied by the user 
-
-*is expected to determine the effective shift. 
-
+* @param encryptedText encrypted journal content 
+* @param key Caesar shift key 
+* @return decrypted plaintext without the validation token 
+* @throws IllegalArgumentException if encryptedText is null or key is 
+invalid 
+* @throws SecurityException if the supplied key is incorrect 
 */ 
-
- public static final int DEFAULT_CAESAR_SHIFT = 3; 
-
-/* 
-
-===== 
-
-CONFIGURATION KEYS  
-
-===== 
-
-*/ 
-
+public static String decrypt(String encryptedText, int key) { 
+validateText(encryptedText); 
+validateKey(key); 
+String decryptedText = shiftAscii(encryptedText, -key); 
+String token = Constants.AUTH_VERIFIED_TOKEN; 
+if(!decryptedText.startsWith(token)) { 
+throw new SecurityException(“Incorrect encryption key.”); 
+} 
+return decryptedText.substring(token.length()); 
+} 
 /** 
-
-*Configuration key for the first-run/setup state. 
-
-*/ 
-
-public static final String CONFIG_SETUP_COMPLETED = “setupCompleted”; 
-
-/** 
-
-*Configuration key for the application’s UI theme. 
-
-*/ 
-
-public static final String CONFIG_THEME = “theme “; 
-
-/** 
-
-*Configuration key for the decoy video path. 
-
-*/ 
-
-public static final String CONFIG_DECOY_VIDEO = “decoyVideo”; 
-
-/** 
-
-*Configuration key for the journal directory . 
-
-*/ 
-
-public static final String CONFIG_JOURNAL_DIRECTORY = “journalDirectory “; 
-
-/* 
-
-===== 
-
-DEFAULT CONFIGURATION VALUES 
-
-===== 
-
-*/ 
-
-/** 
-
-*Default setup state for a fresh installation . 
-
-*/ 
-
-public static final String DEFAULT_SETUP_COMPLETED = “false”; 
-
-/** 
-
-*Default UI theme. 
-
-*/ 
-
-public static final String DEFAULT_THEME = “system”; 
-
-/** 
-
-*Default external decoy video filename. 
-
+* Checks whether an encrypted string can be successfully decrypted 
+* using the supplied key. 
+*  
+* This method does not expose the decrypted journal content. 
 * 
-
-*PanicSystemManager may use the configured value instead 
-
-*when a custom decoy video location has been saved. 
-
+* @param encryptedText encrypted text  
+* @param key key to test  
+* @return true if the key successfully validates the token; 
+*        false otherwise  
 */ 
-
-public static final String DEFAULT_DEECOY_VIDEO = “resources/decoy.mp4”; 
-
+public static boolean isValidKey(String encryptedText, int key) { 
+  if (encryptedText == null || encryptedText.isEmpty()) { 
+    return false; 
+  } 
+  if (!isValidkeyValue(key)) { 
+    return false; 
+  } 
+  try { 
+    String decryptedText = shiftAscii(encryptedText, -key); 
+    return decryptedText.startsWith( 
+        Contents.AUTH_VERIFIED_TOKEN 
+    ); 
+  }catch (RuntimeException exception) { 
+    return false; 
+    } 
+} 
+/** 
+* Performs the Caesar character shift at the ASCII level. 
+* 
+* Every character is treated according to its ASCII value. 
+* Characters in the printable ASCII range (32-126) are wrapped 
+* within that range so that encrypted text remains printable. 
+* 
+* Characters outside the printable ASCII range are preserved. 
+* 
+* @param text text to shift  
+* @param shift positive or negative Caesar shift 
+* @return shifted text  
+*/ 
+private static String shiftAscii(String text, int shift) { 
+  StringBuilder result = new StringBuilder(text.length()); 
+  for (int index = 0; index < text.length(); index++) { 
+    char currentCharacter = text.charAt(index); 
+    if (isPrintableAscii(currentCharacter)) { 
+      int shiftedValue = shiftPrintableAscii( 
+          currentCharacter, 
+          shift 
+     ); 
+    result.append((char) shiftedValued); 
+}else { 
 /* 
-
-===== 
-
-UI CONSTANTS  
-
-===== 
-
+* Newline, carriage return and other non-printable 
+* characters are preserved so journal formatting remains  
+* intact.  
 */ 
-
+result.append(currentCharacter); 
+} 
+} 
+return result.to.String(); 
+} 
 /** 
-
-*Default diary window title. 
-
+* Shifts a printable ASCII character and wraps around the printable 
+* ASCII range. 
+*  
+* Printable ASCII characters occupy decimal values 32 through 126. 
+* 
+* @param character printable ASCII character  
+* @param shift Caesar shift  
+* @return shifted printable ASCII value  
 */ 
-
-public static final String DIARY_WINNDOW_TITLE = “StealthJournal”; 
-
+private static int shiftPrintableAscii(char character, int shift) { 
+  final int printableMinimum = 32; 
+  final int printableMaximum = 126; 
+  final int printableRange =  
+      printableMaximum - printableMinimum + 1; 
+  int normalizedShift = shift % printableRange; 
+  int shiftedValue =  
+      character + nomalizedShift; 
+  if (shiftedValue > printableMaximum) { 
+    shiftedValue =  
+        printableMinimum  
+        + (shiftedValue - printableMaximum) 
+        % printableRange; 
+  }else if (shiftedValue < printableMinimum) { 
+    shiftedValue =  
+        printableMaximum  
+        - (printableMinimum - shiftedValue - 1) 
+        %printableRange; 
+  } 
+  return shiftedValue; 
+} 
 /** 
-
-*Default dialog title used by authentication prompts. 
-
+* Determines whether a character belongs to printable ASCII. 
+*  
+* @param character character to inspect  
+* @return true when the character is printable ASCII  
 */ 
-
-public static final String AUTH_DIALOG_TITLE = “Authentication”; 
-
+private static boolean isPrintableAscii(char character) { 
+return character >= Constants.ASCII_MIN + 32 
+&&character <= Constants.ASCII_MAX - 1; 
+} 
+/**  
+* Validations text supplied to the encryption/decryption methods. 
+* 
+* @param text text to validate 
+* @throws IllegalArgumentException when text is null   
+*/ 
+private static void validateText(String text) { 
+if (text == null) { 
+throw new IllegalArgumentException( 
+“Text cannot be null.” 
+); 
+} 
+} 
 /** 
-
-*Default setup wizard title. 
-
+* Validates a Caesar cipher key. 
+* 
+* The key is required to remain within the ASCII range so that  
+* the Caesar shift remains deterministic and compatible with the 
+* project’s ASCII-level encryption design. 
+* 
+* @param key Caesar shift key 
+* @throws IllegalArgumentException when the key is outside the  
+*      supported range  
 */ 
-
-public static final String SETUP_DIALOG_TITLE = “StealthJournal Setup”; 
-
-/* 
-
-===== 
-
-SECURITY / PANIC SYSTEM  
-
-===== 
-
-*/ 
-
-/** 
-
-*Tittle displayed by the trap/error handler. 
-
-*/ 
-
-public static final String CORRUPTION_ERROR_TITLE = “System Error”; 
-
-/** 
-
-*Message displayed by the fake corruption dialog. 
-
-*/ 
-
-public static final String CORRUPTION_ERROR_MESSAGE = “A critical system error has occurred.” 
-
-+ ”The application will now close.”; 
-
-/** 
-
-*Text associated with the deceptive action that triggers 
-
-*the trap handler. 
-
-*/ 
-
-public static final String DECEPTIVE_BUTTON_TEXT = “Click to View”; 
-
-/* 
-
-===== 
-
-FILE ENCODING  
-
-===== 
-
-*/ 
-
-/** 
-
-*Character encoding used for text-file persistence. 
-
-*/ 
-
-public static final String TEXT_ENCODING = “UTF-8”; 
-
+private static void validateKey(int key) { 
+  if (!isValidKeyValue(key)) { 
+    throw new IllegalArgumentException( 
+        “Encryption key must be between” 
+         + Constants.ASCII_MIN 
+         + “and” 
+         + Constants.ASCII_MAX 
+         + “.” 
+    ); 
+  } 
 }  
-
-  
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
+/** 
+* Determines whether a key is within the supported ASCII range. 
+* 
+* @param key key to validate 
+* @return true when the key is valid 
+*/ 
+private static boolean isValidKeyValue(int key) { 
+return key >= Constants.ASCII_MIN 
+&& <= Constants.ASCII_MAX; 
+} 
+} 
