@@ -1,4 +1,4 @@
-Package org.stealthjournal.util; 
+package src.org.stealthjournal.util; 
 
 /** 
 

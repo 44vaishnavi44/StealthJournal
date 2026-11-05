@@ -398,7 +398,7 @@ public static final String CORRUPTION_ERROR_MESSAGE = “A critical system error
 
 */ 
 
-public static final String DECEPTIVE_BUTTON_TEXT = “Click to View”; 
+public static final String DECEPTIVE_BUTTON_TEXT = “Click to View"; 
 
 /* 
 
@@ -416,7 +416,7 @@ FILE ENCODING
 
 */ 
 
-public static final String TEXT_ENCODING = “UTF-8”; 
+public static final String TEXT_ENCODING = "UTF-8"; 
 
 }  
 
