@@ -4,7 +4,7 @@ package org.stealthjournal.ui;
 import org.stealthjournal.auth.AuthenticationManager;
 import org.stealthjournal.config.ConfigManager;
 
-import orgt.stealthjournal.util.Constants;
+import org.stealthjournal.util.Constants;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;

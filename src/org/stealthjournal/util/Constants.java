@@ -1,4 +1,4 @@
-Package org.stealthjournal.util; 
+package org.stealthjournal.util; 
 
 /** 
 
@@ -22,7 +22,7 @@ All members are static because the class is intended to provide application-wide
 
 */ 
 
-Public final class Constants { 
+public final class Constants { 
 
 /** 
 
@@ -32,7 +32,7 @@ Public final class Constants {
 
 private Constants () { 
 
-     throw new AssertionError(“Constants class must not be instantiated.”); 
+     throw new AssertionError("Constants class must not be instantiated."); 
 
 } 
 
@@ -46,9 +46,9 @@ private Constants () {
 
 */ 
 
-public static final String APPLICATION_NAME = ”StealthJournal”; 
+public static final String APPLICATION_NAME = "StealthJournal"; 
 
-public static final String APPLICATION_VERSION = “1.0”; 
+public static final String APPLICATION_VERSION = "1.0"; 
 
 /* 
 
@@ -66,7 +66,7 @@ public static final String APPLICATION_VERSION = “1.0”;
 
 */ 
 
-public static final String ROOT_DIRECTORY = “StealthJournal”; 
+public static final String ROOT_DIRECTORY = "StealthJournal"; 
 
 /** 
 
@@ -74,7 +74,7 @@ public static final String ROOT_DIRECTORY = “StealthJournal”;
 
 */ 
 
-public static final String CONFIG_DIRECTORY = “config”; 
+public static final String CONFIG_DIRECTORY = "config"; 
 
 /** 
 
@@ -82,7 +82,7 @@ public static final String CONFIG_DIRECTORY = “config”;
 
 */ 
 
-public static final String DATA_DIRECTORY  = “data”; 
+public static final String DATA_DIRECTORY  = "data"; 
 
 /**  
 
@@ -90,7 +90,7 @@ public static final String DATA_DIRECTORY  = “data”;
 
 */  
 
-public static final String JOURNALS_DIRECTORY = “data/journals”; 
+public static final String JOURNALS_DIRECTORY = "data/journals"; 
 
 /** 
 
@@ -98,7 +98,7 @@ public static final String JOURNALS_DIRECTORY = “data/journals”;
 
 */ 
 
-public static final String RESOURCES_DIRECTORY = “resources”; 
+public static final String RESOURCES_DIRECTORY = "resources"; 
 
 /** 
 
@@ -106,7 +106,7 @@ public static final String RESOURCES_DIRECTORY = “resources”;
 
 */ 
 
-public  static final String ICONS_DIRECTORY = “resources“; 
+public  static final String ICONS_DIRECTORY = "resources"; 
 
 /* 
 
@@ -124,7 +124,7 @@ public  static final String ICONS_DIRECTORY = “resources“;
 
 */ 
 
-public static final String UI_SETTINGS_FILES = “config/ui_settings.txt”; 
+public static final String UI_SETTINGS_FILES = "config/ui_settings.txt"; 
 
 /** 
 
@@ -132,7 +132,7 @@ public static final String UI_SETTINGS_FILES = “config/ui_settings.txt”;
 
 */ 
 
-public static final String CONFIG_KEY_VALUE_DELIMITER = “=”; 
+public static final String CONFIG_KEY_VALUE_DELIMITER = "="; 
 
 /* 
 
@@ -150,7 +150,7 @@ JOURNAL FILE SETTINGS
 
 */ 
 
-public static final String JOURNAL_FILE_EXTENSION = “.txt”; 
+public static final String JOURNAL_FILE_EXTENSION = ".txt"; 
 
 /** 
 
@@ -158,7 +158,7 @@ public static final String JOURNAL_FILE_EXTENSION = “.txt”;
 
 */ 
 
-public static final String DEFAULT_JOURNAL_DIRECTORY = “data/journals”; 
+public static final String DEFAULT_JOURNAL_DIRECTORY = "data/journals"; 
 
 /* 
 
@@ -178,7 +178,7 @@ TEXT/FILE DELIMITERS
 
 */ 
 
-public static final String FIELD_DELIMETER = “::”; 
+public static final String FIELD_DELIMETER = "::"; 
 
 /** 
 
@@ -186,7 +186,7 @@ public static final String FIELD_DELIMETER = “::”;
 
 */ 
 
-public static final String KEY_VALUE_DELIMITER = “=”; 
+public static final String KEY_VALUE_DELIMITER = "="; 
 
 /** 
 
@@ -220,7 +220,7 @@ CRYPTOGRAPHY
 
 */ 
 
-public static final String AUTH_VERIFIED_TOKEN = “AUTH_VERIFIED_TOKEN::”; 
+public static final String AUTH_VERIFIED_TOKEN = "AUTH_VERIFIED_TOKEN::"; 
 
 /** 
 
@@ -228,7 +228,7 @@ public static final String AUTH_VERIFIED_TOKEN = “AUTH_VERIFIED_TOKEN::”;
 
 */ 
 
-public static final int ASCII_MAN = 0; 
+public static final int ASCII_MIN = 0; 
 
 public static final int ASCII_MAX = 127; 
 
@@ -262,7 +262,7 @@ CONFIGURATION KEYS
 
 */ 
 
-public static final String CONFIG_SETUP_COMPLETED = “setupCompleted”; 
+public static final String CONFIG_SETUP_COMPLETED = "setupCompleted"; 
 
 /** 
 
@@ -270,7 +270,7 @@ public static final String CONFIG_SETUP_COMPLETED = “setupCompleted”;
 
 */ 
 
-public static final String CONFIG_THEME = “theme “; 
+public static final String CONFIG_THEME = "theme"; 
 
 /** 
 
@@ -278,7 +278,7 @@ public static final String CONFIG_THEME = “theme “;
 
 */ 
 
-public static final String CONFIG_DECOY_VIDEO = “decoyVideo”; 
+public static final String CONFIG_DECOY_VIDEO = "decoyVideo"; 
 
 /** 
 
@@ -286,7 +286,7 @@ public static final String CONFIG_DECOY_VIDEO = “decoyVideo”;
 
 */ 
 
-public static final String CONFIG_JOURNAL_DIRECTORY = “journalDirectory “; 
+public static final String CONFIG_JOURNAL_DIRECTORY = "journalDirectory"; 
 
 /* 
 
@@ -304,7 +304,7 @@ DEFAULT CONFIGURATION VALUES
 
 */ 
 
-public static final String DEFAULT_SETUP_COMPLETED = “false”; 
+public static final String DEFAULT_SETUP_COMPLETED = "false"; 
 
 /** 
 
@@ -312,7 +312,7 @@ public static final String DEFAULT_SETUP_COMPLETED = “false”;
 
 */ 
 
-public static final String DEFAULT_THEME = “system”; 
+public static final String DEFAULT_THEME = "system"; 
 
 /** 
 
@@ -326,7 +326,7 @@ public static final String DEFAULT_THEME = “system”;
 
 */ 
 
-public static final String DEFAULT_DEECOY_VIDEO = “resources/decoy.mp4”; 
+public static final String DEFAULT_DECOY_VIDEO = "resources/decoy.mp4"; 
 
 /* 
 
@@ -344,7 +344,7 @@ UI CONSTANTS
 
 */ 
 
-public static final String DIARY_WINNDOW_TITLE = “StealthJournal”; 
+public static final String DIARY_WINDOW_TITLE = "StealthJournal"; 
 
 /** 
 
@@ -352,7 +352,7 @@ public static final String DIARY_WINNDOW_TITLE = “StealthJournal”;
 
 */ 
 
-public static final String AUTH_DIALOG_TITLE = “Authentication”; 
+public static final String AUTH_DIALOG_TITLE = "Authentication"; 
 
 /** 
 
@@ -360,7 +360,7 @@ public static final String AUTH_DIALOG_TITLE = “Authentication”;
 
 */ 
 
-public static final String SETUP_DIALOG_TITLE = “StealthJournal Setup”; 
+public static final String SETUP_DIALOG_TITLE = "StealthJournal Setup"; 
 
 /* 
 
@@ -374,11 +374,11 @@ SECURITY / PANIC SYSTEM
 
 /** 
 
-*Tittle displayed by the trap/error handler. 
+*Title displayed by the trap/error handler. 
 
 */ 
 
-public static final String CORRUPTION_ERROR_TITLE = “System Error”; 
+public static final String CORRUPTION_ERROR_TITLE = "System Error"; 
 
 /** 
 
@@ -386,9 +386,9 @@ public static final String CORRUPTION_ERROR_TITLE = “System Error”;
 
 */ 
 
-public static final String CORRUPTION_ERROR_MESSAGE = “A critical system error has occurred.” 
+public static final String CORRUPTION_ERROR_MESSAGE = "A critical system error has occurred." 
 
-+ ”The application will now close.”; 
++ "The application will now close."; 
 
 /** 
 
@@ -398,7 +398,7 @@ public static final String CORRUPTION_ERROR_MESSAGE = “A critical system error
 
 */ 
 
-public static final String DECEPTIVE_BUTTON_TEXT = “Click to View”; 
+public static final String DECEPTIVE_BUTTON_TEXT = "Click to View"; 
 
 /* 
 
@@ -416,7 +416,7 @@ FILE ENCODING
 
 */ 
 
-public static final String TEXT_ENCODING = “UTF-8”; 
+public static final String TEXT_ENCODING = "UTF-8"; 
 
 }  
 

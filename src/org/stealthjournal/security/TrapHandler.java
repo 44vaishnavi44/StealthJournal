@@ -1,15 +1,13 @@
 package org.stealthjournal.security;
 
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-
-import orgt.stealthjournal.util.Constants;
-
 import java.awt.Component;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import org.stealthjournal.util.Constants;
 
 /**
  * Handles the deceptive "Click to View" trap mechanism.

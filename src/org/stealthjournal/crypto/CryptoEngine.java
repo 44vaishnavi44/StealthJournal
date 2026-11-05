@@ -14,7 +14,7 @@ public final class CryptoEngine{
 * Private constructor because this class provides utility methods. 
 */ 
 private CryptoEngine() { 
-throw new AssertionError(“CryptoEngine must not be instantiated.”); 
+throw new AssertionError("CryptoEngine must not be instantiated."); 
 } 
 /** 
 * Encrypts plain text using an ASCII-level Caesar shift. 
@@ -54,7 +54,7 @@ validateKey(key);
 String decryptedText = shiftAscii(encryptedText, -key); 
 String token = Constants.AUTH_VERIFIED_TOKEN; 
 if(!decryptedText.startsWith(token)) { 
-throw new SecurityException(“Incorrect encryption key.”); 
+throw new SecurityException("Incorrect encryption key."); 
 } 
 return decryptedText.substring(token.length()); 
 } 
@@ -73,13 +73,13 @@ public static boolean isValidKey(String encryptedText, int key) {
   if (encryptedText == null || encryptedText.isEmpty()) { 
     return false; 
   } 
-  if (!isValidkeyValue(key)) { 
+  if (!isValidKeyValue(key)) { 
     return false; 
   } 
   try { 
     String decryptedText = shiftAscii(encryptedText, -key); 
     return decryptedText.startsWith( 
-        Contents.AUTH_VERIFIED_TOKEN 
+        Constants.AUTH_VERIFIED_TOKEN 
     ); 
   }catch (RuntimeException exception) { 
     return false; 
@@ -107,7 +107,7 @@ private static String shiftAscii(String text, int shift) {
           currentCharacter, 
           shift 
      ); 
-    result.append((char) shiftedValued); 
+    result.append((char) shiftedValue); 
 }else { 
 /* 
 * Newline, carriage return and other non-printable 
@@ -117,7 +117,7 @@ private static String shiftAscii(String text, int shift) {
 result.append(currentCharacter); 
 } 
 } 
-return result.to.String(); 
+return result.toString(); 
 } 
 /** 
 * Shifts a printable ASCII character and wraps around the printable 
@@ -136,7 +136,7 @@ private static int shiftPrintableAscii(char character, int shift) {
       printableMaximum - printableMinimum + 1; 
   int normalizedShift = shift % printableRange; 
   int shiftedValue =  
-      character + nomalizedShift; 
+      character + normalizedShift; 
   if (shiftedValue > printableMaximum) { 
     shiftedValue =  
         printableMinimum  
@@ -169,7 +169,7 @@ return character >= Constants.ASCII_MIN + 32
 private static void validateText(String text) { 
 if (text == null) { 
 throw new IllegalArgumentException( 
-“Text cannot be null.” 
+"Text cannot be null." 
 ); 
 } 
 } 
@@ -187,11 +187,11 @@ throw new IllegalArgumentException(
 private static void validateKey(int key) { 
   if (!isValidKeyValue(key)) { 
     throw new IllegalArgumentException( 
-        “Encryption key must be between” 
+        "Encryption key must be between"
          + Constants.ASCII_MIN 
-         + “and” 
+         + "and"
          + Constants.ASCII_MAX 
-         + “.” 
+         + "."
     ); 
   } 
 }  
@@ -202,7 +202,6 @@ private static void validateKey(int key) {
 * @return true when the key is valid 
 */ 
 private static boolean isValidKeyValue(int key) { 
-return key >= Constants.ASCII_MIN 
-&& <= Constants.ASCII_MAX; 
+return key >= Constants.ASCII_MIN && key <=Constants.ASCII_MAX; 
 } 
 } 

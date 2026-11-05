@@ -42,7 +42,7 @@ runTest("Authenticate with both correct credentials",
 AuthenticationManagerTest::testSuccessfulAuthentication);
 runTest("Reject authentication with incorrect credentials",
 AuthenticationManagerTest::testFailedAuthentication);
-runTest("Retrieve configured security question”,
+runTest("Retrieve configured security question",
 AuthenticationManagerTest::testGetSecurityQuestion);
 runTest("Change password successfully",
 AuthenticationManagerTest::testChangePassword);
@@ -114,7 +114,7 @@ manager.setCredentials(
 );
 assertFalse(
 manager.setCredentials(
-"JournalPass123"
+"JournalPass123",
 "Favourite city?",
 " "
 ),
@@ -414,7 +414,7 @@ IllegalArgumentException.class,
 private static void withFreshManager(
 ManagerTestAction action) throws Exception {
 Path tempDirectory = Files.createTempDirectory(
-"stealthjournal-auth-tests-“
+"stealthjournal-auth-tests-"
 );        
 try {
 Path configPath = tempDirectory.resolve("ui_settings.txt");            

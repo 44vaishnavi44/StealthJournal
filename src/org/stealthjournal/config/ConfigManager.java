@@ -1,8 +1,4 @@
 package org.stealthjournal.config;
-import org.stealthjournal.util.FileIOHelper;
-
-import orgt.stealthjournal.util.Constants;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,9 +10,8 @@ import java.nio.file.StandardCopyOption;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
 import java.util.TreeMap;
+import org.stealthjournal.util.Constants;
 /**
 * Manages StealthJournal's application configuration.
 *
@@ -36,7 +31,7 @@ import java.util.TreeMap;
 */
 public final class ConfigManager {
 private static final String CONFIG_FILE_PATH =
-Constants.UI_SETTINGS_FILE;
+Constants.UI_SETTINGS_FILES;
 private final Path configPath;
 private final Map<String, String> settings =
 new LinkedHashMap<>();
