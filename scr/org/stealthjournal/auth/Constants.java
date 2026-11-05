@@ -22,7 +22,7 @@ All members are static because the class is intended to provide application-wide
 
 */ 
 
-Public final class Constants { 
+public final class Constants { 
 
 /** 
 
@@ -46,9 +46,9 @@ private Constants () {
 
 */ 
 
-public static final String APPLICATION_NAME = ”StealthJournal”; 
+public static final String APPLICATION_NAME = "StealthJournal” ; 
 
-public static final String APPLICATION_VERSION = “1.0”; 
+public static final String APPLICATION_VERSION = “1.0"; 
 
 /* 
 
@@ -360,7 +360,7 @@ public static final String AUTH_DIALOG_TITLE = “Authentication”;
 
 */ 
 
-public static final String SETUP_DIALOG_TITLE = “StealthJournal Setup”; 
+public static final String SETUP_DIALOG_TITLE = "StealthJournal Setup”; 
 
 /* 
 
