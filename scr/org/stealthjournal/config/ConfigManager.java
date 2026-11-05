@@ -1,6 +1,8 @@
 package org.stealthjournal.config;
-import org.stealthjournal.util.Constants;
 import org.stealthjournal.util.FileIOHelper;
+
+import orgt.stealthjournal.util.Constants;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;

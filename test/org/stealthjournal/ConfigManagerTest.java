@@ -1,6 +1,8 @@
 package org.stealthjournal; 
-import org.stealthjournal.config.ConfigManager; 
-import org.stealthjournal.util.Constants; 
+import org.stealthjournal.config.ConfigManager;
+
+import org.stealthjournal.util.Constants;
+
 import java.io.IOException; 
 import java.nio.charset.StandardCharsets; 
 import java.nio.file.Files; 

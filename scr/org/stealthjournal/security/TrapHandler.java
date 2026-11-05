@@ -1,9 +1,10 @@
 package org.stealthjournal.security;
 
-import org.stealthjournal.util.Constants;
-
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+
+import orgt.stealthjournal.util.Constants;
+
 import java.awt.Component;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;

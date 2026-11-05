@@ -1,10 +1,5 @@
 package org.stealthjournal.security;
 
-import org.stealthjournal.config.ConfigManager;
-
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
 import java.awt.Component;
 import java.awt.Desktop;
 import java.awt.GraphicsEnvironment;
@@ -15,6 +10,10 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+import org.stealthjournal.config.ConfigManager;
 
 /**
  * Handles the emergency panic functionality of StealthJournal.

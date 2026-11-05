@@ -1,8 +1,6 @@
 
 package org.stealthjournal.main;
 
-import org.stealthjournal.util.Constants;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -16,6 +14,8 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
+
+import orgt.stealthjournal.util.Constants;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
