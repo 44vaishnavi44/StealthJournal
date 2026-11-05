@@ -84,7 +84,6 @@ public class AuthPromptDialog extends JDialog {
 
         initializeDialog();
         createComponents();
-        registerEvents();
 
         pack();
         setMinimumSize(getPreferredSize());
