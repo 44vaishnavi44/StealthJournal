@@ -1,4 +1,4 @@
-/* 
+
 package org.stealthjournal.ui.components;
 
 import org.stealthjournal.config.ConfigManager;
@@ -28,7 +28,7 @@ import java.util.Map;
  * - Allow action handlers to be registered independently.
  *
  * Actual application actions are connected in later development phases.
- 
+ */
 public final class DeceptiveButtonPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
@@ -59,7 +59,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * @param configManager configuration manager
      * @throws IllegalArgumentException if configManager is null
      * @throws IllegalStateException if the configuration is invalid
-     
+     */
     public DeceptiveButtonPanel(ConfigManager configManager) {
 
         if (configManager == null) {
@@ -84,7 +84,7 @@ public final class DeceptiveButtonPanel extends JPanel {
 
     /**
      * Initializes the panel layout and appearance.
-     
+     */
     private void initializePanel() {
 
         setLayout(
@@ -125,7 +125,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @throws IllegalStateException if any configuration entry is missing
      *                               or contains an invalid value
-     
+     */
     public final void loadButtonsFromConfiguration() {
 
         String[] loadedLabels = new String[BUTTON_COUNT];
@@ -135,7 +135,7 @@ public final class DeceptiveButtonPanel extends JPanel {
         /*
          * Validate the complete configuration before changing
          * the existing button layout.
-         
+         */
         for (int i = 0; i < BUTTON_COUNT; i++) {
 
             int slotNumber = i + 1;
@@ -185,7 +185,7 @@ public final class DeceptiveButtonPanel extends JPanel {
 
         /*
          * Apply the validated configuration.
-         
+         */
         removeAll();
 
         for (int i = 0; i < BUTTON_COUNT; i++) {
@@ -230,7 +230,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @param action action code
      * @return true if the action is recognized
-     
+     */
     private boolean isValidAction(String action) {
 
         if (action == null) {
@@ -256,7 +256,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @param slotIndex button slot index
      * @param originalEvent original Swing action event
-     
+     */
     private void dispatchAction(
             int slotIndex,
             ActionEvent originalEvent
@@ -287,7 +287,7 @@ public final class DeceptiveButtonPanel extends JPanel {
         /*
          * Use a snapshot so listeners can safely modify
          * their registrations during event processing.
-         
+         */
         List<ActionListener> handlerSnapshot =
                 new ArrayList<ActionListener>(handlers);
 
@@ -307,7 +307,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * @param action action code
      * @param listener action listener
      * @throws IllegalArgumentException if the action or listener is invalid
-     
+     */
     public void addActionHandler(
             String action,
             ActionListener listener
@@ -349,7 +349,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @param action action code
      * @param listener replacement listener
-     
+     */
     public void setActionHandler(
             String action,
             ActionListener listener
@@ -383,7 +383,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * @param action action code
      * @param listener listener to remove
      * @return true if the listener was removed
-     
+     */
     public boolean removeActionHandler(
             String action,
             ActionListener listener
@@ -414,7 +414,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @param action action code
      * @return true if an action registration existed
-     
+     */
     public boolean clearActionHandlers(String action) {
 
         if (!isValidAction(action)) {
@@ -426,7 +426,7 @@ public final class DeceptiveButtonPanel extends JPanel {
 
     /**
      * Removes all registered action listeners.
-     
+    */
     public void clearAllActionHandlers() {
 
         actionHandlers.clear();
@@ -438,7 +438,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * @param index button index from 0 to 3
      * @return corresponding JButton
      * @throws IndexOutOfBoundsException if index is invalid
-     
+     */
     public JButton getButton(int index) {
 
         validateIndex(index);
@@ -453,7 +453,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * replace the panel's internal button references.
      *
      * @return copy of the button array
-     
+     */
     public JButton[] getButtons() {
 
         return buttons.clone();
@@ -464,7 +464,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @param index button index from 0 to 3
      * @return configured action code
-     
+     */
     public String getButtonAction(int index) {
 
         validateIndex(index);
@@ -477,7 +477,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @param index button index from 0 to 3
      * @return displayed button label
-     
+     */
     public String getButtonLabel(int index) {
 
         validateIndex(index);
@@ -489,7 +489,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * Returns the number of buttons managed by this panel.
      *
      * @return button count
-     
+     */
     public int getButtonCount() {
 
         return BUTTON_COUNT;
@@ -500,7 +500,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      *
      * @param action action code
      * @return true if a handler is registered
-     
+     */
     public boolean hasActionHandler(String action) {
 
         if (!isValidAction(action)) {
@@ -520,7 +520,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * to change this panel's internal registrations.
      *
      * @return unmodifiable action-handler snapshot
-     
+     */
     public Map<String, List<ActionListener>>
             getRegisteredActionHandlers() {
 
@@ -547,7 +547,7 @@ public final class DeceptiveButtonPanel extends JPanel {
      * Validates a button index.
      *
      * @param index button index
-     
+     */
     private void validateIndex(int index) {
 
         if (index < 0 || index >= BUTTON_COUNT) {
@@ -559,4 +559,3 @@ public final class DeceptiveButtonPanel extends JPanel {
         }
     }
 }
-*/
