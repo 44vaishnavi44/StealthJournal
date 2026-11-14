@@ -1,4 +1,4 @@
-/* 
+
 package org.stealthjournal.ui;
 
 import java.awt.BorderLayout;
@@ -30,7 +30,7 @@ import org.stealthjournal.auth.AuthenticationManager;
  * the correct answer to the configured security question.
  *
  * Authentication is performed through AuthenticationManager.
- 
+ */
 public class AuthPromptDialog extends JDialog {
 
     private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class AuthPromptDialog extends JDialog {
      *
      * @param owner parent window
      * @param authenticationManager authentication manager
-     
+     */
     public AuthPromptDialog(
             Window owner,
             AuthenticationManager authenticationManager) {
@@ -92,7 +92,7 @@ public class AuthPromptDialog extends JDialog {
 
     /**
      * Initializes the dialog properties.
-     
+     */
     private void initializeDialog() {
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -107,7 +107,7 @@ public class AuthPromptDialog extends JDialog {
 
     /**
      * Creates and arranges the authentication components.
-     
+     */
     private void createComponents() {
 
         JLabel headingLabel = new JLabel(
@@ -291,7 +291,7 @@ public class AuthPromptDialog extends JDialog {
      * Handles authentication using both entered credentials.
      *
      * @param event button action event
-     
+     */
     private void handleAuthentication(ActionEvent event) {
 
         char[] passwordCharacters = passwordField.getPassword();
@@ -382,7 +382,7 @@ public class AuthPromptDialog extends JDialog {
      * Cancelling never grants access.
      *
      * @param event button action event
-     
+     */
     private void handleCancellation(ActionEvent event) {
 
         authenticated = false;
@@ -396,7 +396,7 @@ public class AuthPromptDialog extends JDialog {
      * Handles the Escape key.
      *
      * @param event keyboard action event
-     
+     */
     private void handleEscape(ActionEvent event) {
 
         handleCancellation(event);
@@ -404,7 +404,7 @@ public class AuthPromptDialog extends JDialog {
 
     /**
      * Clears the authentication input fields.
-     
+     */
     private void clearInputFields() {
 
         passwordField.setText("");
@@ -415,7 +415,7 @@ public class AuthPromptDialog extends JDialog {
      * Returns whether authentication was successful.
      *
      * @return true if both credentials were verified
-     
+     */
     public boolean isAuthenticated() {
 
         return authenticated;
@@ -425,7 +425,7 @@ public class AuthPromptDialog extends JDialog {
      * Returns the password input component.
      *
      * @return password field
-     
+     */
     public JPasswordField getPasswordField() {
 
         return passwordField;
@@ -435,7 +435,7 @@ public class AuthPromptDialog extends JDialog {
      * Returns the security answer input component.
      *
      * @return answer field
-     
+     */
     public JTextField getAnswerField() {
 
         return answerField;
@@ -445,7 +445,7 @@ public class AuthPromptDialog extends JDialog {
      * Returns the displayed security question.
      *
      * @return security question label
-     
+     */
     public JLabel getQuestionLabel() {
 
         return questionLabel;
