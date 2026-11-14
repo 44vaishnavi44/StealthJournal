@@ -451,4 +451,3 @@ public class AuthPromptDialog extends JDialog {
         return questionLabel;
     }
 }
-*/

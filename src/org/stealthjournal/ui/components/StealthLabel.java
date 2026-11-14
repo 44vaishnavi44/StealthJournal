@@ -258,4 +258,3 @@ public class StealthLabel extends JLabel {
         diaryTextArea.setEditable(false);
     }
 }
-*/
