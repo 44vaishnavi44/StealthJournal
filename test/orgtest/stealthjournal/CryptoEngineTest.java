@@ -1,4 +1,4 @@
-package org.stealthjournal;  
+package orgtest.stealthjournal;  
 import org.stealthjournal.crypto.CryptoEngine;  
 /**  
 * Test class for StealthJournal's CryptoEngine.  
