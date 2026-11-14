@@ -169,7 +169,7 @@ public final class SetupWizardDialog extends JDialog {
 
     /**
      * Builds the complete setup wizard interface.
-     
+     */
     private void buildInterface() {
 
         JPanel headingPanel = createHeadingPanel();
