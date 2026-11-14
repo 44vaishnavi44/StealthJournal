@@ -253,4 +253,3 @@ public class PanicSystemManager {
         return diaryTextArea;
     }
 }
-*/

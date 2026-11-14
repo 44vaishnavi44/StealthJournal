@@ -1,4 +1,4 @@
-/*
+
 package org.stealthjournal.security;
 
 import java.awt.Component;
@@ -19,7 +19,7 @@ import org.stealthjournal.util.Constants;
  * 3. Terminate the application process.
  *
  * Implements functional requirement FR-08.
- 
+ */
 public class TrapHandler implements ActionListener {
 
     private static final String ERROR_MESSAGE =
@@ -32,7 +32,7 @@ public class TrapHandler implements ActionListener {
 
     /**
      * Creates a TrapHandler without a parent component.
-     
+    */ 
     public TrapHandler() {
         this(null);
     }
@@ -41,7 +41,7 @@ public class TrapHandler implements ActionListener {
      * Creates a TrapHandler with a parent component.
      *
      * @param parentComponent component used as the dialog parent
-     
+     */
     public TrapHandler(Component parentComponent) {
         this.parentComponent = parentComponent;
     }
@@ -53,7 +53,7 @@ public class TrapHandler implements ActionListener {
      * is registered as an ActionListener.
      *
      * @param event button click event
-     
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         handleTrapClick();
@@ -63,7 +63,7 @@ public class TrapHandler implements ActionListener {
      * Executes the fake system error sequence.
      *
      * Displays the error dialog and terminates the application.
-     
+     */
     public void handleTrapClick() {
 
         if (SwingUtilities.isEventDispatchThread()) {
@@ -106,7 +106,7 @@ public class TrapHandler implements ActionListener {
      * Displays the deceptive error dialog and exits the process.
      *
      * This method executes on the Swing Event Dispatch Thread.
-     
+     */
     private void executeTrapSequence() {
 
         // Display the fake system error dialog.
@@ -124,4 +124,3 @@ public class TrapHandler implements ActionListener {
         System.exit(0);
     }
 }
-*/
