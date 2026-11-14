@@ -1,4 +1,4 @@
-/* 
+
 package org.stealthjournal.ui.components;
 
 import org.stealthjournal.auth.AuthenticationManager;
@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
  * Clicking it opens the secondary authentication dialog.
  *
  * The diary canvas remains non-editable until authentication succeeds.
- 
+ */
 public class StealthLabel extends JLabel {
 
     private static final long serialVersionUID = 1L;
@@ -37,7 +37,7 @@ public class StealthLabel extends JLabel {
      * @param parentWindow parent window of the authentication dialog
      * @param authenticationManager authentication manager
      * @param diaryTextArea diary text area to unlock
-     
+     */
     public StealthLabel(
             Window parentWindow,
             AuthenticationManager authenticationManager,
@@ -58,7 +58,7 @@ public class StealthLabel extends JLabel {
      * @param parentWindow parent window of the authentication dialog
      * @param authenticationManager authentication manager
      * @param diaryTextArea diary text area to unlock
-     
+     */
     public StealthLabel(
             String text,
             Window parentWindow,
@@ -95,7 +95,7 @@ public class StealthLabel extends JLabel {
 
     /**
      * Configures the appearance of the label.
-     
+     */
     private void initializeLabel() {
 
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -115,7 +115,7 @@ public class StealthLabel extends JLabel {
 
     /**
      * Registers mouse and keyboard interaction for the hidden gate.
-     
+     */
     private void registerMouseListener() {
 
         addMouseListener(new MouseAdapter() {
@@ -151,7 +151,7 @@ public class StealthLabel extends JLabel {
      *
      * Successful authentication unlocks the diary canvas.
      * Failed or cancelled authentication keeps the canvas locked.
-     
+     */
     private void openAuthenticationDialog() {
 
         if (authenticationInProgress) {
@@ -217,7 +217,7 @@ public class StealthLabel extends JLabel {
 
     /**
      * Unlocks the diary canvas after successful authentication.
-     
+     */
     private void unlockDiaryCanvas() {
 
         diaryTextArea.setEditable(true);
@@ -234,7 +234,7 @@ public class StealthLabel extends JLabel {
 
     /**
      * Ensures that the diary canvas remains locked.
-     
+     */
     private void keepDiaryCanvasLocked() {
 
         diaryTextArea.setEditable(false);
@@ -244,7 +244,7 @@ public class StealthLabel extends JLabel {
      * Returns whether the diary canvas is currently unlocked.
      *
      * @return true if the canvas is editable
-     
+     */
     public boolean isDiaryUnlocked() {
 
         return diaryTextArea.isEditable();
@@ -252,7 +252,7 @@ public class StealthLabel extends JLabel {
 
     /**
      * Locks the diary canvas again.
-     
+     */
     public void lockDiaryCanvas() {
 
         diaryTextArea.setEditable(false);
