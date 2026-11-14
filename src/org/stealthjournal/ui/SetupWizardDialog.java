@@ -113,7 +113,7 @@ public final class SetupWizardDialog extends JDialog {
      *
      * @param owner parent window
      * @param configManager configuration manager
-     */
+    */ 
     public SetupWizardDialog(
             Window owner,
             ConfigManager configManager
@@ -169,7 +169,7 @@ public final class SetupWizardDialog extends JDialog {
 
     /**
      * Builds the complete setup wizard interface.
-     */
+     
     private void buildInterface() {
 
         JPanel headingPanel = createHeadingPanel();
@@ -984,7 +984,7 @@ public final class SetupWizardDialog extends JDialog {
     /**
      * Removes partially saved first-time configuration values
      * if the setup process fails.
-     */
+    */ 
     private void rollbackConfiguration() {
 
         configManager.setSetupCompleted(false);

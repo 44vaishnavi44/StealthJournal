@@ -1,3 +1,4 @@
+/*
 package org.stealthjournal.security;
 
 import java.awt.Component;
@@ -26,7 +27,7 @@ import org.stealthjournal.config.ConfigManager;
  * 5. Display a fallback alert if the video cannot be launched.
  *
  * Implements functional requirement FR-07.
- */
+ 
 public class PanicSystemManager {
 
     private static final String FALLBACK_MESSAGE =
@@ -44,7 +45,7 @@ public class PanicSystemManager {
      *
      * @param diaryTextArea the application's diary canvas
      * @param configManager the configuration manager
-     */
+     
     public PanicSystemManager(
             JTextArea diaryTextArea,
             ConfigManager configManager) {
@@ -59,7 +60,7 @@ public class PanicSystemManager {
      * @param diaryTextArea the application's diary canvas
      * @param configManager the configuration manager
      * @param parentComponent component used as the dialog parent
-     */
+     
     public PanicSystemManager(
             JTextArea diaryTextArea,
             ConfigManager configManager,
@@ -93,7 +94,7 @@ public class PanicSystemManager {
      *
      * This method is safe to call from either the Swing
      * Event Dispatch Thread or another thread.
-     */
+     
     public void triggerPanic() {
 
         if (SwingUtilities.isEventDispatchThread()) {
@@ -132,7 +133,7 @@ public class PanicSystemManager {
      * Performs the actual panic operation.
      *
      * This method must execute on the Swing Event Dispatch Thread.
-     */
+     
     private void executePanicOverride() {
 
         // Step 1: Immediately clear the visible diary content.
@@ -227,7 +228,7 @@ public class PanicSystemManager {
      * is missing or cannot be launched.
      *
      * The diary canvas remains cleared and locked.
-     */
+     
     private void showFallbackAlert() {
 
         if (GraphicsEnvironment.isHeadless()) {
@@ -247,8 +248,9 @@ public class PanicSystemManager {
      * Returns the diary text area managed by this class.
      *
      * @return diary JTextArea
-     */
+     
     public JTextArea getDiaryTextArea() {
         return diaryTextArea;
     }
 }
+*/
