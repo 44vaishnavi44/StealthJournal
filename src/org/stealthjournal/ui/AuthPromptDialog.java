@@ -1,18 +1,6 @@
 
 package org.stealthjournal.ui;
 
-import org.stealthjournal.auth.AuthenticationManager;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.KeyStroke;
-import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
@@ -23,6 +11,17 @@ import java.awt.Insets;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
+import org.stealthjournal.auth.AuthenticationManager;
 
 /**
  * Modal dialog for StealthJournal's secondary authentication.
