@@ -132,7 +132,7 @@ public static final String UI_SETTINGS_FILES = "config/ui_settings.txt";
 
 */ 
 
-public static final String CONFIG_KEY_VALUE_DELIMITER = "="; 
+public static final String CONFIG_KEY_VALUE_DELIMITER = "|"; 
 
 /* 
 
@@ -178,7 +178,7 @@ TEXT/FILE DELIMITERS
 
 */ 
 
-public static final String FIELD_DELIMETER = "::"; 
+public static final String FIELD_DELIMETER = "|"; 
 
 /** 
 
@@ -186,7 +186,7 @@ public static final String FIELD_DELIMETER = "::";
 
 */ 
 
-public static final String KEY_VALUE_DELIMITER = "="; 
+public static final String KEY_VALUE_DELIMITER = "|"; 
 
 /** 
 
