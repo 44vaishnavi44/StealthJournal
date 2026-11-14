@@ -1,4 +1,4 @@
-package org.stealthjournal;
+package orgtest.stealthjournal;
 import org.stealthjournal.auth.AuthenticationManager;
 import org.stealthjournal.config.ConfigManager;
 import java.io.IOException;
